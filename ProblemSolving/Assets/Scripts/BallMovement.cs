@@ -25,12 +25,15 @@ public class BallMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * speed;
+        if (!GameManager.IsGameOver)
+        {
+            direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * speed;
 
-        //direction = (mainCamera.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized;
-        //Vector3 target = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+            //direction = (mainCamera.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized;
+            //Vector3 target = mainCamera.ScreenToWorldPoint(Input.mousePosition);
 
-        rb2.velocity = direction;
-        //rb2.MovePosition((Vector2)transform.position + direction * speed);
+            rb2.velocity = direction;
+            //rb2.MovePosition((Vector2)transform.position + direction * speed);
+        }
     }
 }

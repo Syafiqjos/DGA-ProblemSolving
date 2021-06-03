@@ -1,9 +1,9 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ScoreText : MonoBehaviour
+public class TimeText : MonoBehaviour
 {
     Text text;
 
@@ -14,6 +14,6 @@ public class ScoreText : MonoBehaviour
 
     private void Update()
     {
-        text.text = $"Score : {ScoreManager.gameScore.ToString()}\nHighscore : {ScoreManager.gameHighScore.ToString()}";
+        text.text = $"Time : { TimeManager.currentTime.ToString("0.00") }";
     }
 }

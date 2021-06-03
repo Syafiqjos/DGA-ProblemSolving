@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BlockSpawner : MonoBehaviour
 {
+    public int minTotalBlock;
     public int maxTotalBlock;
     public Rect border;
     public Block blockPrefab;
@@ -19,7 +20,7 @@ public class BlockSpawner : MonoBehaviour
 
     void SpawnBlocks()
     {
-        int totalBlock = Random.Range(0, maxTotalBlock);
+        int totalBlock = Random.Range(minTotalBlock, maxTotalBlock);
         for (int i = 0;i < totalBlock;i++)
         {
             SpawnBlock(border);

@@ -8,19 +8,37 @@ public class GameManager : MonoBehaviour
 
     public static bool IsGameOver { get; private set; } = false;
 
+    public GameObject gameplayUI;
+    public GameObject gameOverUI;
+
     private void Awake()
     {
         Instance = this;
         IsGameOver = false;
     }
 
-    public static void GameOver()
+    private void Update()
     {
-        IsGameOver = true;
+        gameplayUI.SetActive(!IsGameOver);
+        gameOverUI.SetActive(IsGameOver);
     }
 
-    public void RetryGame()
+    public static void GameOver()
+    {
+        if (!IsGameOver)
+        {
+            ScoreManager.SaveData();
+            IsGameOver = true;
+        }
+    }
+
+    public static void RetryGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
+    public static void ExitGame()
+    {
+        Application.Quit();
+    }    
 }
