@@ -29,7 +29,7 @@ public class BlockSpawner : MonoBehaviour
     void SpawnBlock(Rect border)
     {
         Block ne = Instantiate(blockPrefab.gameObject).GetComponent<Block>();
-        ne.Reposition(border);
+        ne.Initialize(border);
         blockList.Add(ne);
 
         ne.transform.parent = blockParent;

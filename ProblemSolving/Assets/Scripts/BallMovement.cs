@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class BallMovement : MonoBehaviour
 {
+    public static BallMovement Instance { get; private set;}
+
     private Rigidbody2D rb2;
+    public Collider2D coll;
 
     public Vector2 direction;
     public float speed = 50.0f;
@@ -13,7 +16,10 @@ public class BallMovement : MonoBehaviour
 
     private void Awake()
     {
+        Instance = this;
+
         rb2 = GetComponent<Rigidbody2D>();
+        coll = GetComponent<Collider2D>();
         mainCamera = Camera.main;
     }
 

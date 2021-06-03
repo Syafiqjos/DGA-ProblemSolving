@@ -383,6 +383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d45e9597305454348926b8f3611c29df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coll: {fileID: 0}
   direction: {x: 0, y: 0}
   speed: 10
 --- !u!1 &1105821503
@@ -781,10 +782,10 @@ MonoBehaviour:
   maxTotalBlock: 20
   border:
     serializedVersion: 2
-    x: -5
-    y: -5
-    width: 10
-    height: 10
+    x: -4
+    y: -4
+    width: 8
+    height: 8
   blockPrefab: {fileID: -8925748790141189714, guid: bf0098988a873384484e502e9b117364, type: 3}
   blockParent: {fileID: 1878387560}
 --- !u!4 &1878387560

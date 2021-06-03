@@ -14,11 +14,6 @@ public class ScoreManager : MonoBehaviour
         gameScore = 0;
     }
 
-    private void Start()
-    {
-
-    }
-
     public static void AddScore()
     {
         gameScore += gameScoreDelta;
