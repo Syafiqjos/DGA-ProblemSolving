@@ -6,14 +6,14 @@ public class BlockSpawner : MonoBehaviour
 {
     public int maxTotalBlock;
     public Rect border;
-    public GameObject blockPrefab;
+    public Block blockPrefab;
     public Transform blockParent;
 
-    private List<GameObject> blockList;
+    private List<Block> blockList;
 
     private void Start()
     {
-        blockList = new List<GameObject>();
+        blockList = new List<Block>();
         SpawnBlocks();
     }
 
@@ -22,16 +22,14 @@ public class BlockSpawner : MonoBehaviour
         int totalBlock = Random.Range(0, maxTotalBlock);
         for (int i = 0;i < totalBlock;i++)
         {
-            float x = Random.Range(border.x, border.x + border.width);
-            float y = Random.Range(border.y, border.y + border.height);
-
-            SpawnBlock(new Vector2(x, y));
+            SpawnBlock(border);
         }
     }
 
-    void SpawnBlock(Vector2 pos)
+    void SpawnBlock(Rect border)
     {
-        GameObject ne = Instantiate(blockPrefab, pos, Quaternion.identity);
+        Block ne = Instantiate(blockPrefab.gameObject).GetComponent<Block>();
+        ne.Reposition(border);
         blockList.Add(ne);
 
         ne.transform.parent = blockParent;
