@@ -12,11 +12,11 @@ public class BallMovement : MonoBehaviour
     private void Awake()
     {
         rb2 = GetComponent<Rigidbody2D>();
-        direction = Random.insideUnitCircle;
     }
 
-    private void Start()
+    private void FixedUpdate()
     {
-        rb2.AddForce(direction * speed, ForceMode2D.Impulse);
+        direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * speed;
+        rb2.velocity = direction;
     }
 }
